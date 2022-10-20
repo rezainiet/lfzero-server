@@ -5,6 +5,10 @@ const userSchema = mongoose.Schema({
         type: String,
         require: true,
     },
+    role: {
+        type: String,
+        require: true,
+    },
     name: {
         type: String,
         require: true,
@@ -17,15 +21,7 @@ const userSchema = mongoose.Schema({
         type: Number,
         require: true,
     },
-    image: {
-        type: String,
-        require: true,
-    },
-    age: {
-        type: Number,
-        require: true,
-    },
-    createdOn: {
+    date: {
         type: Date,
         default: Date.now,
     },

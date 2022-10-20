@@ -22,15 +22,16 @@ const createUser = async (req, res) => {
     try {
         const newUser = new User({
             id: uuidv4(),
+            role: req.body.role,
             name: req.body.name,
             email: req.body.email,
             phone: Number(req.body.phone),
-            image: req.body.image,
-            age: Number(req.body.age),
+            date: req.body.date
         });
         await newUser.save();
         res.status(201).json(newUser);
     } catch (error) {
+        console.log('error', error)
         res.status(500).send(error.message);
     }
 };
