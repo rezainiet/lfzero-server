@@ -32,9 +32,9 @@ const getOneCourse = async (req, res) => {
 const createCourse = async (req, res) => {
     try {
         const newCourse = new Course({
-            id: uuidv4(),
             name: req.body.name,
-            price: Number(req.body.price),
+            id: uuidv4(),
+            price: req.body.price,
             instructor: req.body.instructor,
             photoURL: req.body.photoURL,
             description: req.body.description
