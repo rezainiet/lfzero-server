@@ -1,3 +1,4 @@
+const { ObjectId } = require("mongodb");
 const { v4: uuidv4 } = require("uuid");
 const Course = require("../models/course.model");
 
@@ -13,10 +14,18 @@ const getAllCourses = async (req, res) => {
 }
 
 
-const getOneCourse = (req, res) => {
-    res.status(200).json({
-        message: "Getting one course",
-    });
+const getOneCourse = async (req, res) => {
+
+    try {
+        const id = req.params.id;
+        const result = await Course.findOne({ _id: ObjectId(id) });
+        res.status(200).json(result);
+    } catch (error) {
+        res.status(500).send({
+            message: "Something wrong!"
+        });
+    }
+
 };
 
 

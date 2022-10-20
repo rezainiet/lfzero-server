@@ -25,6 +25,10 @@ const courseSchema = mongoose.Schema({
         type: String,
         require: true,
     },
+    ratings: {
+        type: String,
+        require: true,
+    },
 });
 
 module.exports = mongoose.model("Course", courseSchema);
