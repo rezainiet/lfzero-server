@@ -26,8 +26,8 @@ const userSchema = mongoose.Schema({
         require: true,
     },
     age: {
-        type: String,
-        require: true,
+        type: Date,
+        require: Date.now,
     },
     createdOn: {
         date: {
