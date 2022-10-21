@@ -27,6 +27,19 @@ const getOneCourse = async (req, res) => {
     }
 
 };
+const searchCourse = async (req, res) => {
+
+    try {
+        const name = req.params.name;
+        const result = await Course.findOne({ instructor: name });
+        res.status(200).json(result);
+    } catch (error) {
+        res.status(500).send({
+            message: "Something wrong!"
+        });
+    }
+
+};
 
 
 const createCourse = async (req, res) => {
@@ -52,12 +65,24 @@ const updateCourse = (req, res) => {
         message: "Course is updated",
     });
 };
+// const searchCourse = async (req, res, next) => {
+//     try {
+//         const searchField = req.params.name;
+
+//         await Course.find({ name: { $regex: searchField, $options: '$i' } })
+//             .then(data => {
+//                 res.status(200).send(data);
+//             })
+//     } catch (error) {
+//         res.status(500).send({ message: "Course not found!" })
+//     }
+// };
 
 
-const deleteUser = (req, res) => {
+const deleteCourse = (req, res) => {
     res.status(201).json({
         message: "Course is deleted",
     });
 };
 
-module.exports = { getAllCourses, getOneCourse, createCourse, updateCourse, deleteUser };
+module.exports = { getAllCourses, getOneCourse, searchCourse, createCourse, updateCourse, deleteCourse };

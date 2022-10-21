@@ -26,7 +26,7 @@ const createUser = async (req, res) => {
             email: req.body.email,
             phone: Number(req.body.phone),
             image: req.body.image,
-            age: Number(req.body.age),
+            age: req.body.age,
         });
         await newUser.save();
         res.status(201).json(newUser);
