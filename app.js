@@ -3,8 +3,8 @@ const cors = require('cors');
 const stripe = require('stripe')('sk_test_51L43jCJ2XuAf4degMXjWUUPwI4alsfrktZnMuzqPhdSwe1CDAHyM3gIQf78d2MKjiVddUVwVV1KXiKLdAshDI89V00ImUKGPAL');
 require('./config/db');
 
-const userRouter = require("./routes/user.route");
-const courseRouter = require("./routes/course.route");
+const userRouter = require("./api/user.route");
+const courseRouter = require("./api/course.route");
 
 const app = express();
 
