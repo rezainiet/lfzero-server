@@ -29,6 +29,19 @@ const courseSchema = mongoose.Schema({
         type: String,
         require: true,
     },
+
+    targetedPeoples: {
+        type: String,
+        require: true,
+    },
+    whyNeed: {
+        type: String,
+        require: true,
+    },
+    keyPoints: {
+        type: Array,
+        require: true,
+    },
     ratings: {
         type: String,
         require: true,

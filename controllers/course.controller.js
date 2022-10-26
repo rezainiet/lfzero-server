@@ -37,7 +37,8 @@ const searchCourse = async (req, res) => {
             {
                 "$or": [
                     { name: { $regex: req.params.key } },
-                    { instructor: { $regex: req.params.key } }
+                    { instructor: { $regex: req.params.key } },
+                    { description: { $regex: req.params.key } }
                 ]
             }
         )
