@@ -17,6 +17,10 @@ const courseSchema = mongoose.Schema({
         type: String,
         require: true,
     },
+    instructorEmail: {
+        type: String,
+        require: true,
+    },
     photoURL: {
         type: String,
         require: true,

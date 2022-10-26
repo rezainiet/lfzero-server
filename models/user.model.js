@@ -18,16 +18,23 @@ const userSchema = mongoose.Schema({
         require: true,
     },
     phone: {
-        type: Number,
+        type: String,
         require: true,
     },
     image: {
         type: String,
         require: true,
     },
+    password: {
+        type: String,
+        require: true,
+    },
     age: {
         type: Date,
         require: Date.now,
+    },
+    eduQualification: {
+        type: String,
     },
     createdOn: {
         date: {

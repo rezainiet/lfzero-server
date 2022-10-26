@@ -18,7 +18,7 @@ const getOneCourse = async (req, res) => {
 
     try {
         const id = req.params.id;
-        const result = await Course.findOne({ _id: ObjectId(id) });
+        const result = await Course.findOne({ id: id });
         res.status(200).json(result);
     } catch (error) {
         res.status(500).send({
@@ -30,9 +30,19 @@ const getOneCourse = async (req, res) => {
 const searchCourse = async (req, res) => {
 
     try {
-        const name = req.params.name;
-        const result = await Course.findOne({ instructor: name });
-        res.status(200).json(result);
+        // const name = req.params.key;
+        // const result = await Course.findOne({ instructor: name });
+        // res.status(200).json(result);
+        let data = await Course.find(
+            {
+                "$or": [
+                    { name: { $regex: req.params.key } },
+                    { instructor: { $regex: req.params.key } }
+                ]
+            }
+        )
+        res.send(data);
+
     } catch (error) {
         res.status(500).send({
             message: "Something wrong!"
