@@ -1,15 +1,12 @@
 const express = require("express");
 const router = express.Router();
-<<<<<<< HEAD
-const { getAllUsers, createUser, getUserByEmail } = require('../controllers/user.controller');
-=======
 const {
   getAllUsers,
   createUser,
   createAdmin,
   deleteUser,
+  getUserByEmail
 } = require("../controllers/user.controller");
->>>>>>> 9b231af26df7cf090c1b212a3d0cc1ed37286e10
 
 router.get("/", getAllUsers);
 router.get("/:id", getAllUsers);

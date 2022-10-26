@@ -16,6 +16,16 @@ const getOneUser = (req, res) => {
     });
 };
 
+const getUserByEmail = async (req, res) => {
+    try {
+        const email = req.params.email;
+        const user = await User.findOne({ email: email });
+        res.status(200).json(user);
+    } catch (error) {
+        res.status(500).send(error.message)
+    };
+}
+
 const createUser = async (req, res) => {
     try {
         const newUser = new User({
@@ -57,14 +67,14 @@ const deleteUser = async (req, res) => {
 };
 
 const getAdmin = async (req, res) => {
-    try {
-        const email = req.params.email;
-        const user = await User.findOne({ email: email });
-        const isAdmin = user.role === "admin";
-        res.send({ admin: isAdmin });
-    } catch (error) {
-        res.status(500).send(error.message);
-    }
+    // try {
+    //     const email = req.params.email;
+    //     const user = await User.findOne({ email: email });
+    //     const isAdmin = user.role === "admin";
+    //     res.send({ admin: isAdmin });
+    // } catch (error) {
+    //     res.status(500).send(error.message);
+    // }
 };
 
 const createAdmin = async (req, res) => {
@@ -91,4 +101,5 @@ module.exports = {
     deleteUser,
     getAdmin,
     createAdmin,
+    getUserByEmail
 };

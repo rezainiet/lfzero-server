@@ -17,11 +17,7 @@ app.use(express.json());
 app.use("/api/users", userRouter);
 app.use("/api/courses", courseRouter);
 
-<<<<<<< HEAD
-
-=======
 const YOUR_DOMAIN = "http://localhost:4000";
->>>>>>> 9b231af26df7cf090c1b212a3d0cc1ed37286e10
 
 // api/users : GET
 
@@ -34,8 +30,6 @@ app.get("/", (req, res) => {
   res.sendFile(__dirname + "/./views/index.html");
 });
 
-<<<<<<< HEAD
-=======
 app.post("/create-checkout-session", async (req, res) => {
   const session = await stripe.checkout.sessions.create({
     line_items: [
@@ -52,7 +46,6 @@ app.post("/create-checkout-session", async (req, res) => {
 
   res.redirect(303, session.url);
 });
->>>>>>> 9b231af26df7cf090c1b212a3d0cc1ed37286e10
 
 // Routing error handle
 app.use((req, res, next) => {
